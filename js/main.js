@@ -20,7 +20,7 @@ $(document).ready(function(){
                     $("#form_group_serca_direct_avec_resultat_text").text('OK' + JSON.stringify(qualificationResult, undefined, 2));
                 },
                 error : function(xhr, textStatus, errorThrown ) {
-                    $("form_group_serca_direct_avec_resultat").show();
+                    $("#form_group_serca_direct_avec_resultat").show();
                     $("#form_group_serca_direct_avec_resultat_text").text('Erreur (voir les anomalies javascript dans le navigateur):' + textStatus + ' ' + JSON.stringify(errorThrown));        
                 }
             });
