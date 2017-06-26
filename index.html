@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Qui paie les croissants</title>
+    <title>Qui paie les croissants?</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Chocolatines ou petits pains</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Chocolatines ou petits pains?</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,10 +53,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Test</a>
+                        <a class="page-scroll" href="#test_sans_cors">Test sans cors</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="#test_avec_cors">Test avec cors</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
@@ -80,48 +80,85 @@
             <div class="intro-text">
                 <div class="intro-lead-in">Test CORS sur serca!</div>
                 <div class="intro-heading">Gagnez des croissants grace à du code</div>
-                <a href="#services" class="page-scroll btn btn-xl">Tester</a>
+                <a href="#test_sans_cors" class="page-scroll btn btn-xl">Tester</a>
             </div>
         </div>
     </header>
 
-    <!-- Services Section -->
-    <section id="services">
+    <!-- test_sans_cors Section -->
+    <section id="test_sans_cors">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Tester la solution sans CORS</h2>
+                    <h3 class="section-subheading text-muted">Si ça marche <b>Claude</b> paie les croissants</h3>
                 </div>
             </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            <div class="row">
+                <form id="sans">
+                <div class="form-group" id="form_group_serca_direct_sans">
+                        <label for="url_serca_direct_sans" class="col-sm-4 control-label  text-right">URL serca</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="url_serca_direct_sans" value="https://www.serca.preprod.laposte.fr/services/mascadia/legacy/controle?&nom=seguret%20claude&ligne2=&ligne3=9%20RUE%20DU%20DOCTEUR%20GIROD&ligne4=&ligne5=&ligne6=39250%20MIGNOVILLARD&idClient=sna&passwdClient=Rr7Xv!isA.&typeResultat=json" />
+                        </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <div class="form-group">
+                    <div  class="col-sm-4 control-label cursor_pointer"></div>
+                    <div class="col-sm-8">
+                        <button type="submit" class="btn btn-primary" id="formFileSubmit_sans">Lancer le traitement</button>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </form>
+            </div>
+            <div class="row">
+                <div class="form-group collapse" id="form_group_serca_direct_sans_resultat">
+                        <div  class="col-sm-4">Résultat :</div>
+                        <div class="col-sm-8">
+                            <div id="form_group_serca_direct_sans_resultat_text"></div>
+                        </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- test_sans_cors Section -->
+    <section id="test_avec_cors">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Tester la solution avec CORS</h2>
+                    <h3 class="section-subheading text-muted">Si ça marche <b>Fredo</b> paie les croissants</h3>
+                </div>
+            </div>
+            <div class="row">
+                <form id="avec">
+                <div class="form-group" id="form_group_serca_direct_avec">
+                        <label for="url_serca_direct" class="col-sm-4 control-label  text-right">URL serca</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="url_serca_direct_avec" value="http://cors-proxy.seguret.org:3000/https://www.serca.preprod.laposte.fr/services/mascadia/legacy/controle?&nom=seguret%20claude&ligne2=&ligne3=9%20RUE%20DU%20DOCTEUR%20GIROD&ligne4=&ligne5=&ligne6=39250%20MIGNOVILLARD&idClient=sna&passwdClient=Rr7Xv!isA.&typeResultat=json" />
+                        </div>
+                </div>
+                <div class="form-group">
+                    <div  class="col-sm-4 control-label cursor_pointer"></div>
+                    <div class="col-sm-8">
+                        <button type="submit" class="btn btn-primary" id="formFileSubmit_avec">Lancer le traitement</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div class="row">
+                <div class="form-group collapse" id="form_group_serca_direct_avec_resultat">
+                        <div  class="col-sm-4">Résultat :</div>
+                        <div class="col-sm-8">
+                            
+                            <div id="form_group_serca_direct_avec_resultat_text"></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
 
     <!-- Portfolio Grid Section -->
     <section id="portfolio" class="bg-light-gray">
@@ -664,6 +701,8 @@
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+
+    <script src="js/main.js"></script>
 
 </body>
 
